@@ -23,19 +23,19 @@ How to optimize? - Look for stale resources:
 ---
 1. Now goto EC2 from AWS Console -> Click on Launch instance
 
-  Give a name
-  
-  Use Ubuntu 22.04 LTS as an image
-  
-  Instance type as t2.micro
-  
-  Create a key pair if already present use the existing one
-  
-  Click on Launch instance
+    Give a name
+    
+    Use Ubuntu 22.04 LTS as an image
+    
+    Instance type as t2.micro
+    
+    Create a key pair if already present use the existing one
+    
+    Click on Launch instance
 
 
 
-2. Check in Volumes you should have volume of the instance created
+2. Check in Volumes you should have a volume of the instance created
 
 
 3. On the left pane under Elastic Block Storage select Snapshots -> Click on Create snapshot -> Select the Volume ID that is associated with the instance that has been created -> Give a Description -> Click on Create snaphot
@@ -43,24 +43,24 @@ How to optimize? - Look for stale resources:
 
 4. a) Now goto Lambda from AWS console ->  Give a Function name ->  Runtime - Python 3.10 -> Click on Create function -> Click on Deploy -> Use the code from the file in repo and click on Test -> Give a Event name -> Click on Save > Click on Test
 
-You will get error 
+   You will get error 
 
-Default execution time for AWS Lambda is 3 seconds
+   Default execution time for AWS Lambda is 3 seconds
 
-b) Go to Configuration tab in AWS lambda function -> Under General configuration -> Click on Edit -> Change the timeout from 3 to 10 seconds -> Click on Save
+    b) Go to Configuration tab in AWS lambda function -> Under General configuration -> Click on Edit -> Change the timeout from 3 to 10 seconds -> Click on Save
+    
+      AWS charges are directly propotional to AWS Lambda function execution (timeout) time
 
-AWS charges are directly propotional to AWS Lambda function execution (timeout) time
+    c) Go to Configuration tab in AWS lambda function -> Under Permissions -> Click on the Role name -> Click on Add permissions and Attach policies 
 
-c) Go to Configuration tab in AWS lambda function -> Under Permissions -> Click on the Role name -> Click on Add permissions and Attach policies 
+    d) Click on Create policy -> Click on EC2 -> Search and select DeleteSnapshot, DescribeSnapshots, DescribeInstances, DescribeVolumes  -> Reseouces select All -> Click on Next -> Give a Policy name -> Click on Create policy
 
-d) Click on Create policy -> Click on EC2 -> Search and select DeleteSnapshot, DescribeSnapshots, DescribeInstances, DescribeVolumes  -> Reseouces select All -> Click on Next -> Give a Policy name -> Click on Create policy
-
-Now go back to the Step 4.c) -> Select the policy created in Step 4.d) -> Click on Add permissions 
+      Now go back to the Step 4.c) -> Select the policy created in Step 4.d) -> Click on Add permissions 
 
 
 5. Now go back to the Step 4.a) 
 
-Now the script executes
+   Now the script executes
 
 
 6. Now terminate the EC2 instance -> Check the instance and volume to be removed except the snapshot
