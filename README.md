@@ -72,18 +72,15 @@ How to optimize? - Look for stale resources:
 
 6. Now terminate the EC2 instance -> Check the instance and volume to be removed except the snapshot
 
-![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/8b3a649e-a9bc-410b-b530-510bdce0bea9)
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/8b4b44cd-57c0-4971-9e39-1b2e4b0baa48)
+
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/a15c16c0-50f1-4d18-89fe-bd876af641f9)
 
 
 7. Perform the Step 5. again which should automatically delete the snaphot which is no longer associated with the volume 
 
 
 8. Manullay creating a volume -> Go to Volumes on the left pane in EC2 - Click on Create volume -> Size - 1 GiB -> Create Volume
-
-![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/aa04b4bd-7d21-4a6f-81e2-882cbc64d8c6)
-
-
-![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/06b571a5-5fd9-45e8-b92e-b34fdc43fd11)
 
 
 9. Creating a snapshot -> Go to Snapshots on the left pane in EC2 - Click on Create snapshot -> Select the Volume ID that is associated with the instance that has been created -> Give a Description -> Click on Create snaphot
