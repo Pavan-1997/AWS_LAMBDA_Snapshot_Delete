@@ -33,12 +33,17 @@ How to optimize? - Look for stale resources:
     
     Click on Launch instance
 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/02e08640-f00b-4f10-9a02-1d40c5b62e41)
 
 
 2. Check in Volumes you should have a volume of the instance created
 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/0f905ac1-d3a8-4aa2-906f-98fbd1abcc52)
+
 
 3. On the left pane under Elastic Block Storage select Snapshots -> Click on Create snapshot -> Select the Volume ID that is associated with the instance that has been created -> Give a Description -> Click on Create snaphot
+
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/95144c87-c6b7-4d7d-994b-81e6fc2e1a5d)
 
 
 4. a) Now goto Lambda from AWS console ->  Give a Function name ->  Runtime - Python 3.10 -> Click on Create function -> Click on Deploy -> Use the code from the file in repo and click on Test -> Give a Event name -> Click on Save > Click on Test
@@ -62,20 +67,36 @@ How to optimize? - Look for stale resources:
 
    Now the script executes
 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/d65461bf-8087-4ed5-bde9-f3d856a46c52)
+
 
 6. Now terminate the EC2 instance -> Check the instance and volume to be removed except the snapshot
 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/dc953660-4de6-41cb-83a3-0c981c0008bf)
 
-7. Perform the Step 5. again which should automatically delete the snaphot whick is no longer associated with the volume 
+
+7. Perform the Step 5. again which should automatically delete the snaphot which is no longer associated with the volume 
 
 
 8. Manullay creating a volume -> Go to Volumes on the left pane in EC2 - Click on Create volume -> Size - 1 GiB -> Create Volume
 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/06b571a5-5fd9-45e8-b92e-b34fdc43fd11)
+
 
 9. Creating a snapshot -> Go to Snapshots on the left pane in EC2 - Click on Create snapshot -> Select the Volume ID that is associated with the instance that has been created -> Give a Description -> Click on Create snaphot
+
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/4b67a9b3-f9a6-43e2-b253-b94ca04f11d8)
+
+
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/41295361-9906-496c-9fdd-99dc3b43c547)
 
 
 10. Now again perform the Step 5. again which should automatically delete the snaphot whick is associated with the volume with no instance
 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/3c4f9e03-9d85-42a1-967c-0f587ca31587)
+
 
 11. Triggering this with AWS CloudWatch -> Goto CloudWatch from AWS Console -> On the left pane click on Event and Rules -> Click on Create rule -> Give a Rule name -> Select 	Schedule -> Click on Continue in EventBridge Scheduler -> Now select Recurring schedule -> Click on Rate-based schedule -> Rate - 24 hours -> Flexible time windows - 15 minutes -> Select Target API - Templated targets - AWS Lambda -> Under Invoke - Lambda function select the Lambda function created -> Click on Next -> Click on Next -> Click on Create schedule
+ 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/0e42fd81-8dde-43fc-9a03-0eb5b8f221e2)
+
