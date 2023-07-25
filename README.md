@@ -79,6 +79,8 @@ How to optimize? - Look for stale resources:
 
 7. Perform the Step 5. again which should automatically delete the snaphot which is no longer associated with the volume 
 
+![image](https://github.com/Pavan-1997/AWS_Lambda_Stale_Snapshot_Delete/assets/32020205/856fd6d0-a2ea-4abc-a376-ea5e26ff4914)
+
 
 8. Manullay creating a volume -> Go to Volumes on the left pane in EC2 - Click on Create volume -> Size - 1 GiB -> Create Volume
 
