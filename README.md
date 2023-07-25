@@ -20,18 +20,18 @@ How to optimize? - Look for stale resources:
 - Send out notifications
 - Delete the resources
 ```
-
+---
 1. Now goto EC2 from AWS Console -> Click on Launch instance
 
-Give a name
-
-Use Ubuntu 22.04 LTS as an image
-
-Instance type as t2.micro
-
-Create a key pair if already present use the existing one
-
-Click on Launch instance
+  Give a name
+  
+  Use Ubuntu 22.04 LTS as an image
+  
+  Instance type as t2.micro
+  
+  Create a key pair if already present use the existing one
+  
+  Click on Launch instance
 
 
 
